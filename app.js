@@ -14,6 +14,8 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
+
+//Home Route
 app.get("/",function(req,res){
     
     let day = date.getDay();
@@ -39,6 +41,8 @@ app.post("/",function(req,res){
     
 });
 
+//Work Route
+
 app.get("/work", function(req,res){
     res.render("list", {listTitle: "Work List", newListItems: workItems});
 });
@@ -49,6 +53,7 @@ app.post("/work", function(req,res){
     res.redirect("/work");
 });
 
+//About Route
 app.get("/about", function(req,res){
     res.render("about");
 });
